@@ -13,11 +13,23 @@
   </head>
   <body>
     <!-- Header Section  -->
-    <header></header>
+    <header class="h-14"></header>
     <!-- Main Section  -->
-    <main>
-      <div id="pdone-container" class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
-        
+    <main class="container mx-auto">
+      <!-- Search Section  -->
+      <div class="">
+        <div class="flex justify-center my-5">
+          <input
+            id="search-field"
+            class="input input-bordered join-item w-3/6 rounded-l-full"
+            placeholder="Search..." />
+          <button onclick="searchHendeler()" class="btn join-item rounded-r-full">Search</button>
+        </div>
+      </div>
+      <div
+        id="pdones-container"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- This is Card Section  -->
       </div>
     </main>
     <!-- Footer Section  -->
