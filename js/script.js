@@ -1,6 +1,7 @@
 const phoneLoad = async (searchText) => {
   const respons = await fetch(
-    `https://openapi.programming-hero.com/api/phones?search=${searchText}`);
+    `https://openapi.programming-hero.com/api/phones?search=${searchText}`
+  );
   // console.log(respons);
   const data = await respons.json();
   // console.log(data.data);
@@ -9,14 +10,25 @@ const phoneLoad = async (searchText) => {
   displayPhone(phones);
 };
 
-
 const displayPhone = (phones) => {
   // console.log(phone);
 
   const phonesContainer = document.getElementById("pdones-container");
 
+  //   Clear Phone Container Card Befor Adding New Card
   phonesContainer.textContent = "";
-  
+
+  //   Display Show All Button If There Are More Then 9 Phones
+  const showAllButtonContainer = document.getElementById("show-all-container");
+  if (phones.length > 9) {
+    showAllButtonContainer.classList.remove("hidden");
+  }else{
+    showAllButtonContainer.classList.add('hidden');
+  };
+
+  //   Display Only Fast 9 Phones
+  phones = phones.slice(0, 9);
+
   phones.forEach((phone) => {
     // console.log(phone);
 
@@ -36,17 +48,16 @@ const displayPhone = (phones) => {
               </div>
             </div>
         `;
-        // 4 Append Child
-        phonesContainer.appendChild(phoneCard);
+    // 4 Append Child
+    phonesContainer.appendChild(phoneCard);
   });
 };
 
-// Search Hendeler 
-function searchHendeler(){
-    // console.log("searchHendeler");
-    const searchField = document.getElementById('search-field');
-    const fieldText = searchField.value ;
-    // console.log(fieldText);
-    phoneLoad(fieldText);
-
+// Search Hendeler
+function searchHendeler() {
+  // console.log("searchHendeler");
+  const searchField = document.getElementById("search-field");
+  const fieldText = searchField.value;
+  // console.log(fieldText);
+  phoneLoad(fieldText);
 }

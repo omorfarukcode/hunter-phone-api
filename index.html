@@ -17,20 +17,34 @@
     <!-- Main Section  -->
     <main class="container mx-auto">
       <!-- Search Section  -->
-      <div class="">
+      <section>
         <div class="flex justify-center my-5">
           <input
             id="search-field"
             class="input input-bordered join-item w-3/6 rounded-l-full"
             placeholder="Search..." />
-          <button onclick="searchHendeler()" class="btn join-item rounded-r-full">Search</button>
+          <button
+            onclick="searchHendeler()"
+            class="btn join-item rounded-r-full">
+            Search
+          </button>
         </div>
-      </div>
-      <div
-        id="pdones-container"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <!-- This is Card Section  -->
-      </div>
+      </section>
+      <!-- Product Section  -->
+      <section>
+        <!-- Card Container  -->
+        <div
+          id="pdones-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        <!-- See More Btn  -->
+        <div id="show-all-container" class="flex justify-center hidden">
+          <button
+            onclick="seeAllHendeler()"
+            class="btn btn-active btn-primary text-white">
+            Show All
+          </button>
+        </div>
+      </section>
     </main>
     <!-- Footer Section  -->
     <footer></footer>
