@@ -47,7 +47,7 @@ const displayPhone = (phones, isShowAll) => {
               <h2 class="card-title">${phone.phone_name}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div class="card-actions">
-                <button onclick="showDetailsHandler('${phone.slug}')" class="btn btn-primary">Show Details</button>
+                <button onclick="showDetailsHandler('${phone.slug}')" class="btn bg-blue-600 py-2 px-5 text-white">Show Details</button>
               </div>
             </div>
         `;
@@ -72,11 +72,28 @@ const showDetailsHandler = async (id) => {
 
 const showPhoneData = (phone) => {
   console.log(phone);
+  const phoneImageContainer = document.getElementById("modal-image-container");
+  phoneImageContainer.classList = "flex justify-center";
+  phoneImageContainer.innerHTML = `<img src="${phone.image}" />`
   const phoneName = document.getElementById('show-detail-phone-name');
   phoneName.innerText = phone.name;
+  const brandName = document.getElementById("show-detail-brand-name");
+  brandName.innerText = phone.brand;
+  const storage = document.getElementById("show-detail-storage");
+  storage.innerText = phone.mainFeatures.storage;
+  const chipSet = document.getElementById("show-detail-chipSet");
+  chipSet.innerText = phone.mainFeatures?.chipSet;
+  const displaySize = document.getElementById("show-display-size");
+  displaySize.innerText = phone.mainFeatures.displaySize;
   const releaseDate = document.getElementById("show-detail-release-date");
+  const mamory = document.getElementById("show-detail-memory");
+  mamory.innerText = phone.mainFeatures?.memory;
+  const gps = document.getElementById("show-detail-slug");
+  gps.innerText = phone.slug;
+
   releaseDate.innerText = phone.releaseDate;
   show_details_modal.showModal();
+  
 }
 
 // Search Hendeler
